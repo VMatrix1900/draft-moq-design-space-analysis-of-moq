@@ -35,7 +35,7 @@ author:
      organization: Tsinghua University
      email: cuiyong@tsinghua.edu.cn
      country: China
-    -
+   -
      ins: X. Yu
      name: Xiaobo Yu
      organization: Alibaba Group
