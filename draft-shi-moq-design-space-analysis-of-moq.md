@@ -35,6 +35,12 @@ author:
      organization: Tsinghua University
      email: cuiyong@tsinghua.edu.cn
      country: China
+    -
+     ins: X. Yu
+     name: Xiaobo Yu
+     organization: Alibaba Group
+     email: shibo.yxb@alibaba-inc.com
+     country: China
 
 normative:
 
@@ -120,6 +126,8 @@ The first question of using relay to forward the media between the producer and 
 
 
 Another approach is to connect the relays in a dynamic mesh instead of a static hierarchy. Alibaba's  low-latency live streaming network builds on a flat CDN overlay {{LiveNet}}. A centralized controller collects the latency between each relay periodically and calculates the optimal path (latency-wise) for each media stream dynamically. Alibaba claims the flat topology reduce the latency by half compared to static hierarchy. An example is shown in {{mesh}}, the media stream is forwarded through relay 1 and relay 4, only 2 hops. If the network path between relay 1 and relay 4 are congested, relay 1 - relay 2/3 - relay 4 maybe used to provide lower-latency forwarding.
+
+The controller can be connected with 3rd party application provider and manages the interactive media communication between producer and consumer for the application provider. The interactive media can be delivered to other consumers via certain relays of the live streaming network. A request of interactive media communication can be triggered by a consumer. The request is sent to the application provider which then attempts to pull related media of corresponding consumer and producer from the live streaming network. The application provider merges the media containing the producer and the consumer and delivers the merged media to the live streaming network. The live steaming network conducts the media switching for the corresponding producer, consumer and other consumers via the corresponding relays upon the receipt of the media switching request. 
 
 ~~~
               +-----------------------------------------+
