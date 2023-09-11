@@ -46,17 +46,7 @@ normative:
 
 informative:
 
-  moq-req:
-    title: draft-gruessing-moq-requirements-02
-    author:
-     -
-      ins: J. Gruessing
-      name: James Gruessing
-     -
-      ins: S. Dawkins
-      name: Spencer Dawkins
-    date: 2022-10
-    target: https://datatracker.ietf.org/doc/draft-gruessing-moq-requirements/
+  moq-req: I-D.draft-ietf-moq-requirements
 
   QUICR-arch:
     title: QuicR - Media Delivery Protocol over QUIC
@@ -96,7 +86,7 @@ Media over QUIC aims to provide low-latency, efficient media delivery solution f
 
 ## Requirements Language
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in BCP 14 {{!RFC2119}} {{!RFC8174}} when, and only when, they appear in all capitals, as shown here.
+{::boilerplate bcp14-tagged}
 
 # Design Choice 1: Static Tree Topology versus Dynamic Mesh Topology
 
