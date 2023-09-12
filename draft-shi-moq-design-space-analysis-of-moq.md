@@ -18,8 +18,8 @@ venue:
   type: "Working Group"
   mail: "moq@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/moq/"
-  github: "VMatrix1900/moq-design-space-analysis-of-moq"
-  latest: "https://VMatrix1900.github.io/moq-design-space-analysis-of-moq/draft-shi-moq-design-space-analysis-of-moq.html"
+  github: "VMatrix1900/draft-moq-design-space-analysis-of-moq"
+  latest: "https://VMatrix1900.github.io/draft-moq-design-space-analysis-of-moq/draft-shi-moq-design-space-analysis-of-moq.html"
 
 author:
    -
