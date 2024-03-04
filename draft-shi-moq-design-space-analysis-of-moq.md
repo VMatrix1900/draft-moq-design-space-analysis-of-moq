@@ -141,16 +141,7 @@ The controller can be connected with 3rd party application provider and manages 
 ~~~
 {: #mesh title="dynamic mesh topology"}
 
-# Design Choice 2: Stateless HTTP versus Stateful pub/sub
-
-Traditionally the CDN are using HTTP to support live streaming. The media stream is broken into a series of chunks which are mapped to HTTP resources. In this way, the HTTP stack and infrastructure is reused. Since HTTP is stateless, each relay only need to act as an HTTP server/client. There is no need to store the relationship between different HTTP flows hence the relay is easier to implement. However, such a stateless HTTP server will suffer from the delay of the chunk because each relay need to download the chunk first before it can serve the chunk to the downstream node as an HTTP server. The delay will be stacked along with the relay chain. Reducing the chunk size can reduce the delay, but the number of chunk will increase thus brings higher burden of management and signalling.
-
-Using pub/sub as the metaphor requires that the relay node keeps track of the mapping between the publisher and subscribers, i.e. the subscription information state. A packet receive from the publisher can be duplicated and forwarded to subscribers immediately without any delay, forming a relay chain for packets instead of chunks. HTTP can be modified to send partial chunks before a full chunk is received, then the downstream HTTP stream will bind with the upstream one, essentially brings back the subscription information state.
-
-Another way to eliminate the state in the relay node is to encode the state information on the data-plane. When the producer sends out the media, it tags the subscriber information in each packet or flow. The relay forwards the packet or flow based on the tag. The relay node need to be preloaded the tag forwarding rule. Luckily this tag forwarding rule is related to the topology which is rather static comparing to the highly dynamic media stream subscriber information.
-
-
-# Design Choice 3: QUIC hop-by-hop versus end-to-end
+# Design Choice 2: QUIC hop-by-hop versus end-to-end
 
 The media flow sending from the producer to the consumer will go through several relays. The media content will be encrypted using QUIC encryption as requested in charter. But whether the relay node will terminate the QUIC connection remains open. There are following two options to implement the MoQ protocol stack.
 
